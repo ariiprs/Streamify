@@ -5,6 +5,14 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+Route::get('admin', function() {
+    return 'Hai admin';
+})->middleware('role:admin');
+
+Route::get('user', function() {
+    return 'User nihh';
+})->middleware('role:user');
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
