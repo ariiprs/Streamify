@@ -1,18 +1,34 @@
+import PropTypes from "prop-types";
+
+PrimaryButton.propsTypes = {
+    type: PropTypes.oneOf(["submit", "button", "reset"]),
+    className: PropTypes.string,
+    variant: PropTypes.oneOf([
+        "primary",
+        "warning",
+        "danger",
+        "light-outline",
+        "white-outline",
+    ]),
+    processing: PropTypes.bool,
+    children : PropTypes.node,
+};
+
+
 export default function PrimaryButton({
+    type = 'submit',
     className = '',
-    disabled,
+    variant = "primary",
     children,
+    processing,
     ...props
 }) {
     return (
         <button
             {...props}
             className={
-                `inline-flex items-center rounded-md border border-transparent bg-gray-800 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white transition duration-150 ease-in-out hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 active:bg-gray-900 ${
-                    disabled && 'opacity-25'
-                } ` + className
-            }
-            disabled={disabled}
+                `rounded-2xl py-[13px] text-center w-full ${processing && "opacity-30"} btn-${variant} ${className}`}
+            disabled={processing}
         >
             {children}
         </button>
