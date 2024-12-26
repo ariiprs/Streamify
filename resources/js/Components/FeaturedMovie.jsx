@@ -10,8 +10,6 @@ FeaturedMovie.propTypes = {
     rating: PropTypes.number,
 };
 
-
-
 export default function FeaturedMovie({
     slug,
     name,
@@ -48,11 +46,14 @@ export default function FeaturedMovie({
                         {category}
                     </p>
                 </div>
-                <div className="translate-x-[100px] group-hover:translate-x-0 transition ease-in-out duration-500">
+                <Link
+                    href={route("prototype.movie.show", slug)}
+                    className="translate-x-[100px] group-hover:translate-x-0 transition ease-in-out duration-500"
+                >
                     <img src="/icons/ic_play.svg" width="50" alt="" />
-                </div>
+                </Link>
             </div>
-            <Link href={route("prototype.movie.show", slug)} className="inset-0 absolute z-50"></Link>
+            {/* <Link className="inset-0 absolute z-50"></Link> */}
         </div>
     );
 }

@@ -1,4 +1,6 @@
 import { Link,  usePage } from "@inertiajs/react";
+import { NavLink } from "react-router-dom";
+
 
 export default function Sidebar({children}){
     return (
