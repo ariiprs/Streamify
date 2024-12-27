@@ -11,7 +11,7 @@ use Inertia\Inertia;
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
 
-Route::redirect('/', '/prototype/login');
+Route::redirect('/', '/login');
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');
