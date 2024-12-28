@@ -19,9 +19,9 @@ export default function Sidebar({children}){
                         <div>
                             <div className="text-gray-1 text-sm mb-4">Menu</div>
                             <Link
-                                href={route("prototype.dashboard")}
+                                href={route("user.dashboard.index")}
                                 className={
-                                    component === "Prototype/Dashboard"
+                                    component === "User/Dashboard/Index"
                                         ? "side-link active"
                                         : "side-link"
                                 }

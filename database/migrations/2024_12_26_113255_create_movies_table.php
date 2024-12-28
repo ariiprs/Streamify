@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('slug', 100);
             $table->string('category', 100);
-            $table->string('video_url', 100);
-            $table->string('thumbnail', 100);
+            $table->string('video_url');
+            $table->string('thumbnail');
             $table->float('rating')->default(0);
             $table->boolean('is_featured')->default(false);
 
