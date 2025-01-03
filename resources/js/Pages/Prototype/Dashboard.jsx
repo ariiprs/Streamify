@@ -15,7 +15,7 @@ export default function Dashboard() {
         draggable: ">1",
     };
     return (
-        <Authenticated>
+        <Authenticated auth={props.auth}>
             {/* CHILDREN AUTHENTICATED */}
             <Head>
                 <link

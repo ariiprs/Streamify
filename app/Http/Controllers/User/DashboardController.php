@@ -18,9 +18,9 @@ class DashboardController extends Controller
 
         /* ini lempar datanya ke file jsxnya langsung, jadi tinggal cek aja
         di directory ini pasti ada filenya 'User/Dashboard/Index',*/
-        return Inertia::render('User/Dashboard/Index', [
+        return Inertia::render('User/Dashboard/Dashboard', [
             'featuredMovies' => $featuredMovie,
-            'browseMovie' => $browseMovie,
+            'browseMovie' => $browseMovie,  
             'movies' => $movies,
         ]);
     }

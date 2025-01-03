@@ -1,10 +1,13 @@
 import Authenticated from "@/Layouts/Authenticated/Authenticated";
 import Flickity from "react-flickity-component";
-import { Head } from "@inertiajs/react";
+import { Head, usePage } from "@inertiajs/react";
 import FeaturedMovie from "@/Components/FeaturedMovie";
 import MovieCard from "@/Components/MovieCard";
 
 export default function Dashboard({ auth, featuredMovies, movies, browseMovie }) {
+    /* featuredMovies, movies, browseMovie props ini didapatkan dari data yang dilemparkan dari DashboardController */
+
+    /* ini untuk mengatur scroll ke samping */
     const flickityOptions = {
         cellAlign: "left",
         contain: true,
@@ -14,6 +17,7 @@ export default function Dashboard({ auth, featuredMovies, movies, browseMovie })
         prevNextButtons: false,
         draggable: ">1",
     };
+
     return (
         <Authenticated auth={auth}>
             {/* CHILDREN AUTHENTICATED */}
