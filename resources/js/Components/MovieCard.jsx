@@ -31,7 +31,7 @@ export default function MovieCard({
                 </div>
             </div>
             <Link
-                href={route("prototype.movie.show", slug)}
+                href={route("user.dashboard.movie.show", slug)}
                 className="absolute top-1/2 left-1/2 -translate-y-[500px] group-hover:-translate-y-1/2
                                 -translate-x-1/2 z-20 transition ease-in-out duration-500"
             >

@@ -1,10 +1,13 @@
 import Authenticated from "@/Layouts/Authenticated/Authenticated";
 import Flickity from "react-flickity-component";
-import { Head } from "@inertiajs/react";
+import { Head, usePage } from "@inertiajs/react";
 import FeaturedMovie from "@/Components/FeaturedMovie";
 import MovieCard from "@/Components/MovieCard";
 
-export default function Dashboard() {
+export default function Dashboard({ auth, featuredMovies, movies, browseMovie }) {
+    /* featuredMovies, movies, browseMovie props ini didapatkan dari data yang dilemparkan dari DashboardController */
+
+    /* ini untuk mengatur scroll ke samping */
     const flickityOptions = {
         cellAlign: "left",
         contain: true,
@@ -14,8 +17,9 @@ export default function Dashboard() {
         prevNextButtons: false,
         draggable: ">1",
     };
+
     return (
-        <Authenticated auth={props.auth}>
+        <Authenticated auth={auth}>
             {/* CHILDREN AUTHENTICATED */}
             <Head>
                 <link
@@ -30,14 +34,14 @@ export default function Dashboard() {
                 </div>
                 <Flickity className="gap-[30px]" options={flickityOptions}>
                     {/* Movie Thumbnail */}
-                    {[1, 2, 3, 4].map((i) => (
+                    {featuredMovies.map((featuredMovie) => (
                         <FeaturedMovie
-                            key={i}
-                            slug="the-batman-in-love"
-                            name={`The Batman in Love ${i}`}
-                            category="Comedy"
-                            thumbnail="https://picsum.photos/id/1/300/300"
-                            rating={i + 1}
+                            key={featuredMovie.id}
+                            slug={featuredMovie.slug}
+                            name={featuredMovie.name}
+                            category={featuredMovie.category}
+                            thumbnail={featuredMovie.thumbnail}
+                            rating={featuredMovie.rating}
                         />
                     ))}
                 </Flickity>
@@ -49,13 +53,13 @@ export default function Dashboard() {
                     Browse
                 </div>
                 <Flickity className="gap-[30px]" options={flickityOptions}>
-                    {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                    {browseMovie.map((itemBrowseMovie) => (
                         <MovieCard
-                            key={i}
-                            slug="the-batman-in-love"
-                            name={`The Batman in Love ${i}`}
-                            category="Comedy"
-                            thumbnail="https://picsum.photos/id/1/300/300"
+                            key={itemBrowseMovie.id}
+                            slug={itemBrowseMovie.slug}
+                            name={itemBrowseMovie.name}
+                            category={itemBrowseMovie.category}
+                            thumbnail={itemBrowseMovie.thumbnail}
                         />
                     ))}
                 </Flickity>

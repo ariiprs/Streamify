@@ -17,10 +17,14 @@ class DatabaseSeeder extends Seeder
 
         // User::factory()->create([
         //     'name' => 'Test User',
+        //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
 
+
         $this->call(RoleTableSeeder::class);
         $this->call(UserTableSeeder::class);
+        $this->call(SubscriptionPlanTableSeeder::class);
+        $this->call(MovieTableSeeder::class);
     }
 }

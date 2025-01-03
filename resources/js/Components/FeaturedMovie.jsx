@@ -47,7 +47,7 @@ export default function FeaturedMovie({
                     </p>
                 </div>
                 <Link
-                    href={route("prototype.movie.show", slug)}
+                    href={route("user.dashboard.movie.show", slug)}
                     className="translate-x-[100px] group-hover:translate-x-0 transition ease-in-out duration-500"
                 >
                     <img src="/icons/ic_play.svg" width="50" alt="" />
