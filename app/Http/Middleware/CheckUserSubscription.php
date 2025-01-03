@@ -19,10 +19,12 @@ class CheckUserSubscription
         if ($status === 'true' && !Auth::user()->isActive) {
             return redirect(route('user.dashboard.subscriptionPlan.index'));
         }
+        /* ini kalo  CheckUserSubscription true maka akan eksekusi di atas, karena berarti dia tidak ada langganan yang active. dan ketika klik akan di redirect ke halaman payment*/
 
         if ($status === 'false' && Auth::user()->isActive) {
             return redirect(route('user.dashboard.index'));
         }
+        /* tapi kalo CheckUserSubscriptionnnya false, itu berarti dia memiliki langganan yang aktiv dan ketika klik detail movie ya pasti bisa, karna middleware itu berlaku hanya untuk CheckUserSubscription yang true. begitu pula yg dipasang middleware yang lain */
 
         return $next($request);
     }
