@@ -1,10 +1,10 @@
-import { Link, Head, usePage } from "@inertiajs/react";
+import { Head, usePage } from "@inertiajs/react";
 import SubscriptionDetail from "./SubscriptionDetail";
 import { UserMenu, UserOthers } from "./MenuList";
 import MenuItem from "./MenuItem";
 
 
-export default function Sidebar({children,auth}){
+export default function Sidebar(){
     const user = usePage().props.auth.user;
 
     // const activePlan = usePage().activePlan;
@@ -22,6 +22,7 @@ export default function Sidebar({children,auth}){
                     <div className="links flex flex-col mt-[60px] h-full gap-[50px]">
                         <div>
                             <div className="text-gray-1 text-sm mb-4">Menu</div>
+                            {/* menu item di sini diambil berdasarkan ArrayObject yang ada di Menulist dan lalu diteruskan ke dalam MenuItem */}
                             {UserMenu.map((menu, index) => (
                                 <MenuItem
                                     key={`${index}-${menu.text}`}
@@ -33,6 +34,7 @@ export default function Sidebar({children,auth}){
                                     }
                                 />
                             ))}
+                            {/* MenuItem ini digunakan untuk mengatur supaya bisa dimaping */}
                         </div>
 
                         <div>

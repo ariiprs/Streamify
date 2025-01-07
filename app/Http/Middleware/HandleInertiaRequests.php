@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -62,7 +63,7 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
-         $user = $request->user();
+        $user = $request->user();
         $activePlan = $this->activePlan();
 
         return [
@@ -71,6 +72,10 @@ class HandleInertiaRequests extends Middleware
                 'user' => $user ? array_merge($user->toArray(), [
                     'activePlan' => $activePlan,
                 ]) : null,
+            ],
+            'flashMessage' => [
+                'message' => Session::get('message'),
+                'type' => Session::get('type'),
             ],
         ];
     }

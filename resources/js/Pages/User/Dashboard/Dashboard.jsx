@@ -4,7 +4,8 @@ import { Head, usePage } from "@inertiajs/react";
 import FeaturedMovie from "@/Components/FeaturedMovie";
 import MovieCard from "@/Components/MovieCard";
 
-export default function Dashboard({ auth, featuredMovies, movies, browseMovie }) {
+export default function Dashboard({ featuredMovies, browseMovie }) {
+    const user = usePage().props.auth.user;
     /* featuredMovies, movies, browseMovie props ini didapatkan dari data yang dilemparkan dari DashboardController */
 
     /* ini untuk mengatur scroll ke samping */
@@ -19,14 +20,14 @@ export default function Dashboard({ auth, featuredMovies, movies, browseMovie })
     };
 
     return (
-        <Authenticated auth={auth}>
+        <Authenticated auth={user}>
             {/* CHILDREN AUTHENTICATED */}
             <Head>
+                <title>Dashboard</title>
                 <link
                     rel="stylesheet"
                     href="https://unpkg.com/flickity@2/dist/flickity.min.css"
-                ></link>
-                <title>Dashboard</title>
+                />
             </Head>
             <div>
                 <div className="font-semibold text-[22px] text-black mb-4">
