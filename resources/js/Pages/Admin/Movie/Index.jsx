@@ -39,7 +39,7 @@ export default function Index({ auth, flashMessage , movies }) {
                             <td>
                                 <img
                                     src={`/storage/${movie.thumbnail}`}
-                                    className="w-14 rounded-md"
+                                    className="w-14 rounded-md" alt={movie.name}
                                 />
                             </td>
                             <td>{movie.name}</td>

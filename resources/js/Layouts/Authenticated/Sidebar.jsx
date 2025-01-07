@@ -1,10 +1,10 @@
-import { Link, Head, usePage } from "@inertiajs/react";
+import { Head, usePage } from "@inertiajs/react";
 import SubscriptionDetail from "./SubscriptionDetail";
 import { UserMenu, UserOthers } from "./MenuList";
 import MenuItem from "./MenuItem";
 
 
-export default function Sidebar({children,auth}){
+export default function Sidebar(){
     const user = usePage().props.auth.user;
 
     // const activePlan = usePage().activePlan;
