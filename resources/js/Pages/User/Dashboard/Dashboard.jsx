@@ -5,6 +5,7 @@ import FeaturedMovie from "@/Components/FeaturedMovie";
 import MovieCard from "@/Components/MovieCard";
 
 export default function Dashboard({ auth, featuredMovies, movies, browseMovie }) {
+    const user = usePage().props.auth.user;
     /* featuredMovies, movies, browseMovie props ini didapatkan dari data yang dilemparkan dari DashboardController */
 
     /* ini untuk mengatur scroll ke samping */
@@ -19,7 +20,7 @@ export default function Dashboard({ auth, featuredMovies, movies, browseMovie })
     };
 
     return (
-        <Authenticated auth={auth}>
+        <Authenticated auth={user}>
             {/* CHILDREN AUTHENTICATED */}
             <Head>
                 <link

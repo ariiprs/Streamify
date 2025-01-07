@@ -47,9 +47,7 @@ export default forwardRef(function TextInput(
     return (
         <input
             type={type}
-            className={`rounded-2xl bg-form-bg py-[13px] px-7 w-full ${
-                isError && "input-error"
-            } input-${variant} ${className}`}
+            className={`rounded-2xl bg-form-bg py-[13px] px-7 w-full ${isError && "input-error"} input-${variant} ${className}`}
             placeholder={placeholder}
             defaultValue={defaultValue}
             autoComplete={autoComplete}
